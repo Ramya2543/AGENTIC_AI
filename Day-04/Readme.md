@@ -69,26 +69,6 @@ The assistant uses tools to retrieve bakery information, validates order details
 6. **Order Logging:** Once the order is confirmed, the details are added to Google Sheets.
 7. **Response:** The agent responds to the customer with an order summary in English or Telugu.
 
----
-
-## 🏗️ Architecture
-
-```mermaid
-flowchart TD
-    A[Customer] --> B[AI Order Assistant]
-    B --> C[Groq LLM]
-    C --> D{Need a Tool?}
-    D -->|Check Price| E[get_price]
-    D -->|Check Hours| F[is_open]
-    D -->|Place Order| G[log_order]
-    G --> H[Pydantic Validation]
-    H --> I[Calculate Total]
-    I --> J[Google Sheets]
-    E --> B
-    F --> B
-    J --> B
-    B --> K[Customer Response]
-```
 
 ---
 
